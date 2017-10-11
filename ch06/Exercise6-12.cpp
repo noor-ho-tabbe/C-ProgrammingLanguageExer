@@ -1,3 +1,5 @@
+/*Modify the program from §6.6[3] to also compute the median
+*/
 //中位值
 //1.按照顺序排列 如果是基数取中间那个数
 //2.按照顺序排列 如果是偶数取中间两个数的平均值
