@@ -5,7 +5,7 @@ void StateMachine()
     int c, state;
 
     state = 0;
-    while (cin >> ) {
+    while (cin >> c) {
         if (state == 0 && c == '/')         // ex. [/]
             state = 1;
         else if (state == 1 && c == '*')     // ex. [/*]
