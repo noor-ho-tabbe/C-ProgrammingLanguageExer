@@ -12,3 +12,53 @@ struct Tnode {
 使它只存储一个到任意长的单词的指针，该单词存储在一个由new分配的字符数组里，修改上述函数，
 使他们能够使用新的Tnode
 */
+struct Tnode {
+    string word;
+    int count;
+    Tnode *left;
+    Tnode *right;
+};
+
+Tnode* InsertWord(Tnode* &root, string &word)
+{
+    if (root != NULL)
+    {
+        Tnode *node = root;
+        int order = word.compare(node->word);
+        do
+        {
+            if (order == 0)
+            {
+                ++node->count;
+                break;
+            }
+            else
+            {
+                Tnode *&next = order < 0 ? node->left : node->right;
+                if (next == 0)
+                {
+                    next = new_Tnode(word);
+                    break;
+                }
+                else
+                {
+                    node = next;
+                }
+            }
+        }
+    }
+    else
+    {
+        root = new_Tnode(word);
+    }
+}
+
+
+Tnode * new_Tnode(string const &word)
+{
+    Tnode * node = new Tnode;
+    node->word = word;
+    node->count = 1;
+    node->left = node->right = NULL;
+    return node;
+}
