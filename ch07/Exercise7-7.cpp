@@ -19,6 +19,7 @@ struct Tnode {
     Tnode *right;
 };
 
+// 插入新的单词
 Tnode* InsertWord(Tnode* &root, string &word)
 {
     if (root != NULL)
@@ -61,4 +62,16 @@ Tnode * new_Tnode(string const &word)
     node->count = 1;
     node->left = node->right = NULL;
     return node;
+}
+
+// 打印一棵树，中序遍历
+
+void PrintTnode(std::ostream &output, Tnode* node)
+{
+    if (node != NULL)
+    {
+        PrintTnode(output, node->left);
+        cout <<"word:"<< node->word << endl;
+        PrintTnode(output, node->right);
+    }
 }
