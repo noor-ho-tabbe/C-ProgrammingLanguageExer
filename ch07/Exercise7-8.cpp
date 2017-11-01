@@ -40,13 +40,36 @@ vector<vector<int> > CreatArray()
 // 求逆
 void Inverse(vector<vector<int> > &vec)
 {
-     int a = b = c = d = 0;
-     a = 
+     int a = 0;
+     int b = 0;
+     int c = 0;
+     int d = 0;
+     if ((vec[0][0] * vec[1][1] - vec[0][1] * vec[1][0]) == 0 
+         || (vec[0][0] * vec[1][1] - vec[0][1] * vec[1][0]) == 0 )
+    {
+        cout << "array can't inverse" << endl;
+        return;
+    }
+     a = vec[1][1] / (vec[0][0] * vec[1][1] - vec[0][1] * vec[1][0]);
+     b = (-vec[0][1]) / (vec[0][0] * vec[1][1] - vec[0][1] * vec[1][0]);
+     c = (-vec[1][0]) / (vec[0][0] * vec[1][1] - vec[0][1] * vec[1][0]);
+     d = vec[0][0] / (vec[0][0] * vec[1][1] - vec[0][1] * vec[1][0]);
 
+
+     cout << "Inverse :" << endl;
+     cout << "[" << " ";
+     cout << a << " ";
+     cout << b << " ";
+     cout << "]" << endl;
+     cout << "[" << " ";
+     cout << c << " ";
+     cout << d << " ";
+     cout << "]" << endl;
 }
 
 int main() {
-    CreatArray();
+    vector<vector<int> > vec = CreatArray();
+    Inverse(vec);
     return 0;
 }
 
