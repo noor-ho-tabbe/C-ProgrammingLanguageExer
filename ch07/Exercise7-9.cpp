@@ -11,7 +11,23 @@ using namespace std;
 
 int main(int argc, char *argv[])
 {
-    char *key = (argc >= 2) ? argv[1] : "";
+    char *key;
+    string str;
+    if (argc >= 2)
+    {
+        key = argv[1];
+        cout << "the key : " << key << endl;
+    }
+    else
+    {
+        key = "";
+        cout << "no key !" << key << endl;
+    }
+
+    cout << "Please input a string:\n";
+    cin >> str;
     size_t key_length = (argc >= 2) ? strlen(key) : 1;
-    for (size_t k = 0; cin.getc(ch))
+    for (size_t k = 0; k = (k +1) % key_length; k < str.length(); k++)
+        str[i] = str[i] ^ key[k]
+    return 0;
 }
