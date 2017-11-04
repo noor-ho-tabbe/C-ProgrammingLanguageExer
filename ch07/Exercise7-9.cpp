@@ -6,12 +6,12 @@
 */
 
 #include <iostream>
-
+#include <string.h>
 using namespace std;
 
 int main(int argc, char *argv[])
 {
-    char *key;
+    string key;
     string str;
     if (argc >= 2)
     {
@@ -26,8 +26,14 @@ int main(int argc, char *argv[])
 
     cout << "Please input a string:\n";
     cin >> str;
-    size_t key_length = (argc >= 2) ? strlen(key) : 1;
-    for (size_t k = 0; k = (k +1) % key_length; k < str.length(); k++)
-        str[i] = str[i] ^ key[k]
+    size_t key_length = (argc >= 2) ? key.length() : 1;
+    int temp = 0;
+    for (size_t k = 0;  k < str.length(); k++)
+    {
+        temp = k % key_length;
+        str[k] = str[k] ^ key[temp];
+    }
+        
+    cout << "Encryption :" << str << endl;
     return 0;
 }
